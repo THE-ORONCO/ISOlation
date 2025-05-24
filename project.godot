@@ -76,9 +76,11 @@ interact={
 [layer_names]
 
 2d_physics/layer_1="top"
-2d_navigation/layer_1="player_nav"
+2d_navigation/layer_1="top"
 2d_physics/layer_2="left"
+2d_navigation/layer_2="bottom_left"
 2d_physics/layer_3="right"
+2d_navigation/layer_3="bottom_right"
 2d_physics/layer_4="player"
 2d_physics/layer_5="interactibles"
 2d_physics/layer_6="player_interact"
