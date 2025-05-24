@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export_range(1, 100) var speed: float = 30
+@export_range(1, 2000) var speed: float = 1500
 @export_range(1, 20) var nav_lookahead: float = 5
 @export_range(0, 270, 120) var rot: float:
 	get: return rot
@@ -18,10 +18,10 @@ extends CharacterBody2D
 var movement_delta: float
 
 #func _physics_process(delta: float) -> void:
-	#if Input.is_action_just_pressed("ui_accept"):
+	#if Input.is_action_just_pressed("mv_accept"):
 		#%Sprite.rotation = rot
 	#
-	#var dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	#var dir: Vector2 = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	#
 	#agent.target_position = self.position + dir * speed
 	#self.global_position = self.global_position.move_toward(agent.get_next_path_position(), delta)
@@ -45,12 +45,11 @@ var move_dir: Vector2 = Vector2.ZERO
 func _draw() -> void:
 	draw_circle(move_dir * nav_lookahead, 3, Color.RED)
 	draw_line(Vector2.ZERO, move_dir * 20, Color.RED, 4)
+	for point in agent.get_current_navigation_path():
+		draw_circle(point - self.position, 2, Color.PINK)
 
-func _physics_process(delta):	
-	if Input.is_action_just_pressed("ui_accept"):
-		%Sprite.rotation = rot
-	
-	var input: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+func _physics_process(delta):
+	var input: Vector2 = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	# skew input because we move asymmetrically
 	move_dir = Vector2(input.x, input.y / 2)
 	
@@ -68,10 +67,9 @@ func _physics_process(delta):
 	movement_delta = speed * delta
 	var next_path_position: Vector2 = agent.get_next_path_position()
 	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_delta
-	if agent.avoidance_enabled:
-		agent.set_velocity(new_velocity)
-	else:
-		_on_velocity_computed(new_velocity)
-
+	
+	self.velocity = new_velocity
+	self.move_and_slide()
+	
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
