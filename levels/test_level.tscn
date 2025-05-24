@@ -1,25 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://ifam668uy4sn"]
+[gd_scene load_steps=10 format=4 uid="uid://ifam668uy4sn"]
 
 [ext_resource type="Texture2D" uid="uid://ctdjlki6ay6qs" path="res://levels/tiles.aseprite" id="1_46lwt"]
 [ext_resource type="Script" uid="uid://q31tkq417j20" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="Script" uid="uid://7y6yn03kmkgl" path="res://characters/player.gd" id="2_gmgay"]
-[ext_resource type="Shader" uid="uid://buao8l7pmggog" path="res://levels/shader.tres" id="2_ur00s"]
 [ext_resource type="Script" uid="uid://dkop5p056jobc" path="res://levels/world.gd" id="3_o6mel"]
 [ext_resource type="Texture2D" uid="uid://fuk6kfitvj1p" path="res://icon.svg" id="3_w7r7j"]
 [ext_resource type="Texture2D" uid="uid://dyl7r5pfnvfoq" path="res://characters/light.png" id="6_e7anx"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e7anx"]
-polygon = PackedVector2Array(-16, 0, -16, 16, 0, 24, 0, 8)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wndkh"]
-render_priority = 0
-shader = ExtResource("2_ur00s")
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wndkh"]
-polygon = PackedVector2Array(-16, 0, -16, 16, 0, 24, 0, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ly3hx"]
-polygon = PackedVector2Array(-16, 0, -16, 16, 0, 24, 0, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x25rp"]
 texture = ExtResource("1_46lwt")
@@ -29,7 +15,6 @@ use_texture_padding = false
 3:0/0/texture_origin = Vector2i(0, -8)
 3:0/0/terrain_set = 0
 3:0/0/terrain = 3
-3:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_e7anx")
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(0, -8)
 4:0/0/terrain_set = 0
@@ -38,7 +23,6 @@ use_texture_padding = false
 6:0/0 = 0
 3:1/0 = 0
 3:1/0/texture_origin = Vector2i(0, -8)
-3:1/0/material = SubResource("ShaderMaterial_wndkh")
 3:1/0/terrain_set = 0
 3:1/0/terrain = 3
 3:1/0/terrains_peering_bit/top_corner = 3
@@ -51,7 +35,6 @@ use_texture_padding = false
 3:3/0/texture_origin = Vector2i(0, -8)
 3:3/0/terrain_set = 0
 3:3/0/terrain = 3
-3:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_wndkh")
 3:3/0/terrains_peering_bit/right_corner = 3
 3:3/0/terrains_peering_bit/bottom_right_side = 3
 3:3/0/terrains_peering_bit/top_right_side = 3
@@ -97,7 +80,6 @@ use_texture_padding = false
 3:6/0/texture_origin = Vector2i(0, -8)
 3:6/0/terrain_set = 0
 3:6/0/terrain = 3
-3:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ly3hx")
 3:6/0/terrains_peering_bit/right_corner = 3
 3:6/0/terrains_peering_bit/bottom_right_side = 3
 3:6/0/terrains_peering_bit/top_left_side = 3
