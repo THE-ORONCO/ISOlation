@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7n1rxtwoj0qk"]
+
+[ext_resource type="Texture2D" uid="uid://fuk6kfitvj1p" path="res://icon.svg" id="1_120vl"]
+[ext_resource type="Script" uid="uid://b231ayts8c71t" path="res://levels/door/door.gd" id="1_gxcpb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xc1x7"]
+radius = 11.0454
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxcpb"]
+radius = 5.0
+height = 16.0
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_gxcpb")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+rotation = 0.436332
+scale = Vector2(0.1, 0.139)
+skew = -0.436332
+texture = ExtResource("1_120vl")
+
+[node name="Interact" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="Area" type="CollisionShape2D" parent="Interact"]
+shape = SubResource("CircleShape2D_xc1x7")
+
+[node name="Collision" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Box" type="CollisionShape2D" parent="Collision"]
+shape = SubResource("CapsuleShape2D_gxcpb")
+
+[connection signal="body_entered" from="Interact" to="." method="_entered_interact_range"]
+[connection signal="body_exited" from="Interact" to="." method="_exited_interact_range"]

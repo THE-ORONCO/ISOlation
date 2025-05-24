@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://hy1n3ivw4b7p"]
+
+[ext_resource type="Script" uid="uid://cgktrpd5kjsfh" path="res://levels/level.gd" id="1_ew5uy"]
+[ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_63c5o"]
+[ext_resource type="PackedScene" uid="uid://cm1ur0xw6dtcr" path="res://characters/player.tscn" id="3_63c5o"]
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_ew5uy")
+
+[node name="1" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_63c5o")
+
+[node name="Player" parent="." instance=ExtResource("3_63c5o")]
+unique_name_in_owner = true
