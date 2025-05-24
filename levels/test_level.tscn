@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://ifam668uy4sn"]
+[gd_scene load_steps=17 format=4 uid="uid://ifam668uy4sn"]
 
 [ext_resource type="Texture2D" uid="uid://ctdjlki6ay6qs" path="res://levels/tiles.aseprite" id="1_46lwt"]
 [ext_resource type="Script" uid="uid://q31tkq417j20" path="res://levels/test_level.gd" id="1_w7r7j"]
@@ -6,6 +6,27 @@
 [ext_resource type="Script" uid="uid://dkop5p056jobc" path="res://levels/world.gd" id="3_o6mel"]
 [ext_resource type="Texture2D" uid="uid://fuk6kfitvj1p" path="res://icon.svg" id="3_w7r7j"]
 [ext_resource type="Texture2D" uid="uid://dyl7r5pfnvfoq" path="res://characters/light.png" id="6_e7anx"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e7anx"]
+polygon = PackedVector2Array(0, 8, -16, 17, 0, 24, 16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ur00s"]
+polygon = PackedVector2Array(-16, 0, 0, 8, 16, 0, 16, 16, 0, 24, -16, 17)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wndkh"]
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 16, 16, 0, 24, 0, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ly3hx"]
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8, 0, 24, -16, 17)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4n8tn"]
+polygon = PackedVector2Array(0, 8, 16, 0, 16, 17, 0, 24)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wkb0e"]
+polygon = PackedVector2Array(0, -8, 16, 0, 0, 8, -16, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_paa45"]
+polygon = PackedVector2Array(-16, 0, 0, 8, 0, 24, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x25rp"]
 texture = ExtResource("1_46lwt")
@@ -18,6 +39,7 @@ use_texture_padding = false
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(0, -8)
 4:0/0/terrain_set = 0
+4:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_e7anx")
 5:0/0 = 0
 5:0/0/texture_origin = Vector2i(0, -8)
 6:0/0 = 0
@@ -29,6 +51,7 @@ use_texture_padding = false
 4:1/0 = 0
 4:1/0/texture_origin = Vector2i(0, -8)
 4:1/0/terrain_set = 0
+4:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ur00s")
 5:1/0 = 0
 5:1/0/texture_origin = Vector2i(0, -8)
 3:3/0 = 0
@@ -48,6 +71,7 @@ use_texture_padding = false
 4:2/0 = 0
 4:2/0/texture_origin = Vector2i(0, -8)
 4:2/0/terrain_set = 0
+4:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_wndkh")
 5:2/0 = 0
 5:2/0/texture_origin = Vector2i(0, -8)
 5:3/0 = 0
@@ -55,6 +79,7 @@ use_texture_padding = false
 4:3/0 = 0
 4:3/0/texture_origin = Vector2i(0, -8)
 4:3/0/terrain_set = 0
+4:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ly3hx")
 3:4/0 = 0
 3:4/0/texture_origin = Vector2i(0, -8)
 3:4/0/terrain_set = 0
@@ -67,6 +92,7 @@ use_texture_padding = false
 4:4/0 = 0
 4:4/0/texture_origin = Vector2i(0, -8)
 4:4/0/terrain_set = 0
+4:4/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_4n8tn")
 5:4/0 = 0
 5:4/0/texture_origin = Vector2i(0, -8)
 5:5/0 = 0
@@ -76,6 +102,7 @@ use_texture_padding = false
 4:6/0 = 0
 4:6/0/texture_origin = Vector2i(0, -8)
 4:6/0/terrain_set = 0
+4:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_paa45")
 3:6/0 = 0
 3:6/0/texture_origin = Vector2i(0, -8)
 3:6/0/terrain_set = 0
@@ -96,6 +123,7 @@ use_texture_padding = false
 4:5/0 = 0
 4:5/0/texture_origin = Vector2i(0, -8)
 4:5/0/terrain_set = 0
+4:5/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_wkb0e")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 0, 0, 8, 0, 8, 0, 8, 0, 0)
 1:0/0 = 0
@@ -155,8 +183,8 @@ radius = 6.0
 script = ExtResource("1_w7r7j")
 
 [node name="Foreground" type="TileMapLayer" parent="."]
-visible = false
-tile_map_data = PackedByteArray("AAD2//7/AAADAAUAAAD3//7/AAADAAUAAAD4//7/AAADAAUAAAD5//7/AAADAAUAAAD6//7/AAADAAUAAAD7//7/AAADAAUAAAD7////AAADAAUAAAD8////AAADAAUAAAD9////AAADAAUAAAD9//7/AAADAAUAAAD+//7/AAADAAUAAAD///7/AAADAAUAAAAAAP7/AAADAAUAAAD8//7/AAADAAUAAAD8//3/AAADAAQAAAD8//z/AAADAAQAAAD8//v/AAADAAQAAAD8//r/AAADAAQAAAD8//n/AAADAAQAAAD8//j/AAADAAQAAAD8//f/AAADAAQAAAD8//b/AAADAAQAAAABAP//AAADAAEAAAACAAAAAAADAAEAAAADAAEAAAADAAEAAAAEAAIAAAADAAEAAAAFAAMAAAADAAEAAAAGAAMAAAADAAAAAAAHAAMAAAADAAAAAAAIAAMAAAADAAAAAAAJAAMAAAADAAAAAAAKAAMAAAADAAAAAAALAAMAAAADAAAAAAAFAAQAAAADAAAAAAAFAAUAAAADAAAAAAAFAAYAAAADAAAAAAAFAAcAAAADAAAAAAAGAAcAAAADAAAAAAAGAAgAAAADAAAAAAAGAAkAAAADAAAAAAAEAAQAAAADAAAAAAADAAQAAAADAAAAAAACAAQAAAADAAAAAAACAAUAAAADAAAAAAD9//v/AAADAAUAAAD9//r/AAADAAUAAAD9//j/AAADAAUAAAA=")
+z_index = 10
+tile_map_data = PackedByteArray("AAAGAAMAAAADAAAAAAAHAAMAAAADAAAAAAAIAAMAAAADAAAAAAAJAAMAAAADAAAAAAAKAAMAAAADAAAAAAALAAMAAAADAAAAAAAFAAQAAAADAAAAAAAFAAUAAAADAAAAAAAFAAYAAAADAAAAAAAFAAcAAAADAAAAAAAGAAcAAAADAAAAAAAGAAgAAAADAAAAAAAGAAkAAAADAAAAAAACAAUAAAADAAAAAAD///7/AAAEAAAAAAA=")
 tile_set = SubResource("TileSet_srpys")
 
 [node name="World" type="TileMapLayer" parent="."]
@@ -185,7 +213,7 @@ texture = ExtResource("3_w7r7j")
 color = Color(1, 0.603922, 1, 1)
 shadow_enabled = true
 shadow_filter = 1
-shadow_filter_smooth = 5.4
+shadow_filter_smooth = 2.1
 texture = ExtResource("6_e7anx")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
