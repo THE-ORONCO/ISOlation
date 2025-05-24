@@ -45,6 +45,7 @@ limbo_console_search_history={
 [layer_names]
 
 2d_physics/layer_1="top"
+2d_navigation/layer_1="player_nav"
 2d_physics/layer_2="left"
 2d_physics/layer_3="right"
 2d_physics/layer_4="player"

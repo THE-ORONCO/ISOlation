@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export_range(1, 100) var speed: float = 30
+@export_range(1, 20) var nav_lookahead: float = 5
 @export_range(0, 270, 120) var rot: float:
 	get: return rot
 	set(val): 
@@ -13,13 +14,64 @@ extends CharacterBody2D
 			120: set_collision_mask_value(2, false)
 			270: set_collision_layer_value(3, false)
 
-func _physics_process(delta: float) -> void:
+@onready var agent: NavigationAgent2D = %Agent
+var movement_delta: float
+
+#func _physics_process(delta: float) -> void:
+	#if Input.is_action_just_pressed("ui_accept"):
+		#%Sprite.rotation = rot
+	#
+	#var dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	#
+	#agent.target_position = self.position + dir * speed
+	#self.global_position = self.global_position.move_toward(agent.get_next_path_position(), delta)
+#
+#
+	##
+	#move_and_slide()
+	#
+	
+
+
+func _ready() -> void:
+	agent.velocity_computed.connect(Callable(_on_velocity_computed))
+
+func set_movement_target(movement_target: Vector2):
+	agent.set_target_position(movement_target)
+
+var target_pos: Vector2 = Vector2.ZERO
+var move_dir: Vector2 = Vector2.ZERO
+
+func _draw() -> void:
+	draw_circle(move_dir * nav_lookahead, 3, Color.RED)
+	draw_line(Vector2.ZERO, move_dir * 20, Color.RED, 4)
+
+func _physics_process(delta):	
 	if Input.is_action_just_pressed("ui_accept"):
 		%Sprite.rotation = rot
 	
+	var input: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	# skew input because we move asymmetrically
+	move_dir = Vector2(input.x, input.y / 2)
 	
-	var dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	target_pos = self.global_position + move_dir * nav_lookahead
+	queue_redraw()
+	agent.target_position = target_pos
 	
-	self.velocity = dir * speed
 	
-	move_and_slide()
+	# Do not query when the map has never synchronized and is empty.
+	if NavigationServer2D.map_get_iteration_id(agent.get_navigation_map()) == 0:
+		return
+	if agent.is_navigation_finished():
+		return
+
+	movement_delta = speed * delta
+	var next_path_position: Vector2 = agent.get_next_path_position()
+	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * movement_delta
+	if agent.avoidance_enabled:
+		agent.set_velocity(new_velocity)
+	else:
+		_on_velocity_computed(new_velocity)
+
+func _on_velocity_computed(safe_velocity: Vector2) -> void:
+	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
