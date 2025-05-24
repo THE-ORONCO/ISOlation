@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=4 uid="uid://cop2mwye2n0rx"]
+
+[ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_trnbj"]
+
+[node name="Level1" instance=ExtResource("1_trnbj")]
+
+[node name="1" parent="." index="0"]
+tile_map_data = PackedByteArray("AAD+//7/AAADAAAAAAD+////AAADAAAAAAD+/wAAAAADAAAAAAD+/wEAAAADAAAAAAD+/wIAAAADAAAAAAD//wIAAAADAAAAAAD//wMAAAADAAAAAAAAAAMAAAADAAAAAAABAAMAAAADAAAAAAACAAIAAAADAAAAAAACAAEAAAADAAAAAAACAAAAAAADAAAAAAACAP//AAADAAAAAAABAP//AAADAAAAAAAAAP//AAADAAAAAAAAAP7/AAADAAAAAAD///7/AAADAAAAAAD/////AAADAAAAAAD//wAAAAADAAAAAAD//wEAAAADAAAAAAAAAAEAAAADAAAAAAABAAEAAAADAAAAAAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAA=")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
+position = Vector2(0, 1)
+color = Color(0.0699114, 0.230096, 0.190307, 1)
