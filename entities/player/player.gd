@@ -22,6 +22,14 @@ var _r_interact_circle: float = 0
 @export_range(.01, .5) var interact_prompt_popup_time: float = .1
 var _show_interact_prompt: bool = false
 
+@export_category("rotation")
+enum Rotation {
+	TOP = 1,
+	LEFT = 2,
+	RIGHT = 4,
+}
+@export var walk_on: Rotation = Rotation.TOP
+
 @export_category("hope")
 @export_range(10, 50) var hope_display_distance: float = 5
 @onready var _hope: int = HopeManager.hope 
@@ -33,13 +41,19 @@ var _can_interact: bool = false
 
 func _ready() -> void:
 	agent.velocity_computed.connect(Callable(_on_velocity_computed))
+	agent.set_navigation_layer_value(walk_on, true)
+	
+	match walk_on:
+		Rotation.TOP: pass
+		Rotation.LEFT: %Sprite.rotation = -PI/2
+		Rotation.RIGHT: %Sprite.rotation = PI/2
+
 
 func set_movement_target(movement_target: Vector2):
 	agent.set_target_position(movement_target)
 
 var target_pos: Vector2 = Vector2.ZERO
 var move_dir: Vector2 = Vector2.ZERO
-
 
 func _draw() -> void:
 	draw_circle(move_dir * nav_lookahead, 3, Color.RED)
@@ -67,7 +81,7 @@ func arrange_in_circle(n: int, r: float) -> Array:
 func polar2cartesian(r, g):
 	return Vector2(r * cos(g), r* sin(g))
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	var input: Vector2 = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	_navigate_in_direction(input, delta)
 	

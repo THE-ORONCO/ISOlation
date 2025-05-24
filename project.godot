@@ -21,6 +21,7 @@ LimboConsole="*res://addons/limbo_console/limbo_console.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 HopeManager="*res://managers/hope_manager.gd"
 LevelManager="*res://managers/level_manager.tres.gd"
+SwitchStates="*res://managers/switch_states.gd"
 
 [editor_plugins]
 
