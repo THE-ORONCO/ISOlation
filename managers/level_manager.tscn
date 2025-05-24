@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cokqqgw36fo4"]
+
+[ext_resource type="PackedScene" uid="uid://ifam668uy4sn" path="res://levels/test_level.tscn" id="2_2tlyh"]
+[ext_resource type="PackedScene" uid="uid://cop2mwye2n0rx" path="res://levels/level_1.tscn" id="3_bs2d8"]
+
+[sub_resource type="GDScript" id="GDScript_2tlyh"]
+script/source = "extends Node
+
+@export var levels: Array[PackedScene] = []
+
+func level_exists(level_name: String) -> bool:
+	return _find_level(name) != null
+
+func load_level(name: String):
+	get_tree().change_scene_to_packed.call_deferred(_find_level(name))
+
+func _find_level(name: String) -> PackedScene:
+	var found: PackedScene = null
+	for level in levels:
+		if level.name == name:
+			found = level
+	return found
+"
+
+[node name="LevelManager" type="Node"]
+script = SubResource("GDScript_2tlyh")
+levels = Array[PackedScene]([ExtResource("2_2tlyh"), ExtResource("3_bs2d8")])
