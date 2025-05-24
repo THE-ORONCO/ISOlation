@@ -22,6 +22,11 @@ var _r_interact_circle: float = 0
 @export_range(.01, .5) var interact_prompt_popup_time: float = .1
 var _show_interact_prompt: bool = false
 
+@export_category("hope")
+@export_range(10, 50) var hope_display_distance: float = 5
+@onready var _hope: int = HopeManager.hope 
+var _show_hope: bool = false
+
 @onready var agent: NavigationAgent2D = %Agent
 var movement_delta: float
 var _can_interact: bool = false
@@ -41,10 +46,28 @@ func _draw() -> void:
 	draw_line(Vector2.ZERO, move_dir * 20, Color.RED, 4)
 	for point in agent.get_current_navigation_path():
 		draw_circle(point - self.position, 2, Color.PINK)
+	
 	if _show_interact_prompt:
 		draw_circle(Vector2.UP * _interact_prompt_height, _r_interact_circle, Color.WHITE)
+	
+	if _show_hope:
+		var points := arrange_in_circle(HopeManager.hope, hope_display_distance)
+		for point in points:
+			draw_circle(point + Vector2.UP * interact_prompt_max_height , 2.0, Color.WHITE)
+	
+func arrange_in_circle(n: int, r: float) -> Array:
+	var output = []
+	var total_range: float = 2.0 * PI
+	var offset = total_range / abs(n) # could verify that n is non-zero and
+	for i in range(n):
+		var pos = polar2cartesian(r, i * offset + (-PI/2.))
+		output.push_front(pos)
+	return output
 
-func _physics_process(delta):		
+func polar2cartesian(r, g):
+	return Vector2(r * cos(g), r* sin(g))
+
+func _physics_process(delta):
 	var input: Vector2 = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	_navigate_in_direction(input, delta)
 	
@@ -91,6 +114,7 @@ var _interact_tween: Tween = null
 func _close_to_interactible(thing: Node2D) -> void:
 	_can_interact = true
 	_show_interact_prompt = true
+	_show_hope = true
 	_tween_in_interact_prompt()
 
 func _tween_in_interact_prompt():
@@ -115,6 +139,7 @@ func _tween_in_interact_prompt():
 
 func _away_from_interactible(thing: Node2D) -> void:
 	_can_interact = false
+	_show_hope = false
 	_tween_out_interact_prompt()
 
 func _tween_out_interact_prompt():

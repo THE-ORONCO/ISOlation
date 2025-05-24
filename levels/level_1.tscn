@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://cop2mwye2n0rx"]
+[gd_scene load_steps=3 format=4 uid="uid://cop2mwye2n0rx"]
 
 [ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_trnbj"]
+[ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="2_bt44k"]
 
 [node name="Level1" instance=ExtResource("1_trnbj")]
 
@@ -10,3 +11,6 @@ tile_map_data = PackedByteArray("AAD+//7/AAADAAAAAAD+////AAADAAAAAAD+/wAAAAADAAA
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
 position = Vector2(0, 1)
 color = Color(0.0699114, 0.230096, 0.190307, 1)
+
+[node name="Door" parent="." index="3" instance=ExtResource("2_bt44k")]
+target_level = "test_level"

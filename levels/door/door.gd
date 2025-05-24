@@ -6,13 +6,14 @@ signal door_entered()
 signal interact_range_entered()
 signal interact_range_exited()
 
-@export var target_level: PackedScene
+@export var target_level: String
 @export_group("modulation")
 @export var light_up_time: float = .2
 @export_range(1,2) var modulate_target: float = 2
 
 func interact():
-	get_tree().change_scene_to_packed.call_deferred(target_level)
+	HopeManager.decrease()
+	LevelManager.load_level(target_level)
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warn: PackedStringArray = []

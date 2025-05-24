@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://ifam668uy4sn"]
+[gd_scene load_steps=6 format=4 uid="uid://ifam668uy4sn"]
 
 [ext_resource type="Script" uid="uid://q31tkq417j20" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_w7r7j"]
 [ext_resource type="Script" uid="uid://dkop5p056jobc" path="res://levels/world.gd" id="3_o6mel"]
 [ext_resource type="PackedScene" uid="uid://cm1ur0xw6dtcr" path="res://entities/player/player.tscn" id="4_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="5_o6mel"]
-[ext_resource type="PackedScene" uid="uid://cop2mwye2n0rx" path="res://levels/level_1.tscn" id="6_e7anx"]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_w7r7j")
@@ -23,5 +22,4 @@ position = Vector2(0, 1)
 color = Color(0.0699114, 0.230096, 0.190307, 1)
 
 [node name="Door" parent="." instance=ExtResource("5_o6mel")]
-position = Vector2(32, -7)
-target_level = ExtResource("6_e7anx")
+target_level = "level_1"
