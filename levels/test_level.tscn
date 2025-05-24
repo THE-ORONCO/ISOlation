@@ -210,11 +210,12 @@ texture = ExtResource("3_w7r7j")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
-color = Color(1, 0.603922, 1, 1)
+color = Color(1, 0.623607, 0.924588, 1)
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.1
 texture = ExtResource("6_e7anx")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(0, 1)
 color = Color(0.0699114, 0.230096, 0.190307, 1)
