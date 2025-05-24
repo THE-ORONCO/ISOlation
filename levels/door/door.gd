@@ -2,7 +2,6 @@
 class_name Door 
 extends Interactible
 
-signal door_entered()
 signal interact_range_entered()
 signal interact_range_exited()
 
