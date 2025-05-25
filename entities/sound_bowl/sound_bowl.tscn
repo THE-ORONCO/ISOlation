@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ilaetphb7hyb"]
+[gd_scene load_steps=5 format=3 uid="uid://ilaetphb7hyb"]
 
 [ext_resource type="Script" uid="uid://gwydncc7aoqi" path="res://entities/sound_bowl/sound_bowl.gd" id="1_knw38"]
 [ext_resource type="Texture2D" uid="uid://r5o6sld6uysc" path="res://levels/items and enviremente.aseprite" id="2_43ma0"]
+[ext_resource type="AudioStream" uid="uid://b2a0k1os66muc" path="res://Isolation_Sounds/soundbowl.wav" id="3_43ma0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_knw38"]
 radius = 8.0
@@ -21,3 +22,7 @@ collision_mask = 0
 [node name="Box" type="CollisionShape2D" parent="Hit"]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_knw38")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_43ma0")

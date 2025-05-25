@@ -109,21 +109,21 @@ func _physics_process(delta):
 	
 	_navigate_in_direction(input, delta)
 	
-	if Input.is_action_just_pressed("interact") && _can_interact \
-		&& (%Interaction.has_overlapping_areas() || %Interaction.has_overlapping_bodies()):
-		var areas: Array[Area2D] = %Interaction.get_overlapping_areas()
-		for area in areas:
-			var parent = area.get_parent()
-			if parent != null && parent is Interactible:
-				parent.interact()
-		
-		var bodies: Array[Node2D] = %Interaction.get_overlapping_bodies()
-		for body in bodies:
-			var parent = body.get_parent()
-			if parent != null && parent is Interactible:
-				parent.interact()
-	else:
-		Inventory.use()
+	if Input.is_action_just_pressed("interact"):
+		if _can_interact && %Interaction.has_overlapping_areas() || %Interaction.has_overlapping_bodies():
+			var areas: Array[Area2D] = %Interaction.get_overlapping_areas()
+			for area in areas:
+				var parent = area.get_parent()
+				if parent != null && parent is Interactible:
+					parent.interact()
+			
+			var bodies: Array[Node2D] = %Interaction.get_overlapping_bodies()
+			for body in bodies:
+				var parent = body.get_parent()
+				if parent != null && parent is Interactible:
+					parent.interact()
+		else:
+			Inventory.use()
 
 func _navigate_in_direction(input: Vector2, delta: float) -> void:
 	# skew input because we move asymmetrically

@@ -1,7 +1,9 @@
 extends Item
 
 func use(player: Player):
-	SwitchStates.toggle()
+	if !%Audio.playing:
+		SwitchStates.toggle()
+		%Audio.play()
 
 func interact():
 	%Box.disabled = true
@@ -9,3 +11,4 @@ func interact():
 
 func remove_from(player:Player):
 	%Box.disabled = false
+	
