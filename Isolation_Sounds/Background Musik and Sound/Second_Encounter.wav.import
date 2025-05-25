@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbpkx8m8h75y4"
+path="res://.godot/imported/Second_Encounter.wav-e665f6c8a064a986b11f4351f1eba384.sample"
+
+[deps]
+
+source_file="res://Isolation_Sounds/Background Musik and Sound/Second_Encounter.wav"
+dest_files=["res://.godot/imported/Second_Encounter.wav-e665f6c8a064a986b11f4351f1eba384.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
