@@ -10,3 +10,4 @@ func apply(player: Player):
 
 func remove_from(player:Player):
 	player.can_walk_through_water(false)
+	%Box.disabled = false
