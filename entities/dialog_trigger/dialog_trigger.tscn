@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckh6s4lu5ivao"]
+
+[ext_resource type="Script" uid="uid://gqn3m3yqu8gu" path="res://entities/dialog_trigger/dialog_trigger.gd" id="1_8r23t"]
+[ext_resource type="FontFile" uid="uid://b45nypmc2b631" path="res://fonts/PixelOperator8.ttf" id="2_1fvxw"]
+[ext_resource type="FontFile" uid="uid://dkyplinuji6om" path="res://fonts/PixelOperatorMono8.ttf" id="3_y4orn"]
+[ext_resource type="FontFile" uid="uid://bxiafo330mppw" path="res://fonts/PixelOperator8-Bold.ttf" id="4_iq5ef"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtbxt"]
+radius = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fvxw"]
+bg_color = Color(0.749733, 0.411283, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="DialogTrigger" type="Node2D"]
+script = ExtResource("1_8r23t")
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="Area" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_xtbxt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -268.0
+offset_right = 234.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_1fvxw")
+theme_override_fonts/mono_font = ExtResource("3_y4orn")
+theme_override_fonts/bold_font = ExtResource("4_iq5ef")
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_1fvxw")
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Detection" to="." method="_player_entered"]
