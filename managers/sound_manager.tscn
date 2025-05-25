@@ -1,10 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://0twokmclmc22"]
+[gd_scene load_steps=6 format=3 uid="uid://0twokmclmc22"]
 
 [ext_resource type="AudioStream" uid="uid://c0hobk0lqs4oe" path="res://Isolation_Sounds/Background Musik and Sound/Background_1.wav" id="1_6td43"]
+[ext_resource type="Script" uid="uid://bx3yuhjim1xjy" path="res://managers/sound_manager.gd" id="1_ewouk"]
+[ext_resource type="AudioStream" uid="uid://c8bj822fyd7vk" path="res://Isolation_Sounds/Background Musik and Sound/First_Encounter.wav" id="3_s7rgb"]
+[ext_resource type="AudioStream" uid="uid://bbpkx8m8h75y4" path="res://Isolation_Sounds/Background Musik and Sound/Second_Encounter.wav" id="4_m1w07"]
+[ext_resource type="AudioStream" uid="uid://iyvmhd8l05tm" path="res://Isolation_Sounds/Background Musik and Sound/Third_Encounter.wav" id="5_g20ba"]
 
 [node name="SoundManager" type="Node2D"]
+script = ExtResource("1_ewouk")
 
 [node name="permanent_background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_6td43")
 volume_db = -18.22
 autoplay = true
+
+[node name="Tracks" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="FirstEncounter" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource("3_s7rgb")
+
+[node name="SecondEncounter" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource("4_m1w07")
+volume_db = -25.535
+
+[node name="ThirdEncounter" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource("5_g20ba")
+volume_db = -26.23

@@ -1,7 +1,7 @@
 class_name Player 
 extends CharacterBody2D
 
-@export_range(1, 2000) var speed: float = 1800
+@export_range(1, 3000) var speed: float = 2500
 @export_range(1, 20) var nav_lookahead: float = 5
 @export_range(0, 270, 120) var rot: float:
 	get: return rot

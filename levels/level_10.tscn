@@ -19,3 +19,4 @@ target_level = "level_8"
 
 [node name="Door2" parent="." index="4" instance=ExtResource("3_e5bbe")]
 position = Vector2(166, -40)
+target_level = "end"

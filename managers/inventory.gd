@@ -5,6 +5,8 @@ var player: Node2D
 
 signal item_used(item: Item)
 
+var seen_items:Array[String] = []
+
 func pick_up(new_item: Item) -> void:
 	var old_item: Item = slot
 	
@@ -17,6 +19,10 @@ func pick_up(new_item: Item) -> void:
 	
 	if player != null: 
 		_attach_item_to_player(new_item)
+	
+	if !seen_items.has(new_item.name):
+		seen_items.append(new_item.name)
+		SoundManager.next()
 
 func _attach_item_to_player(new_item: Item):
 	new_item.apply(player)
