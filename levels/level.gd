@@ -1,6 +1,5 @@
 extends Node2D
 
-@export_range(0, 1) var world_animation_time: float = .3
 var can_switch_world: bool = true
 
 @onready var player: CharacterBody2D = %Player
@@ -15,8 +14,11 @@ func _ready() -> void:
 			var is_world = cell.get_custom_data("gate")
 			if is_world != null && is_world == true:
 				relevant_cells.append(cell_cords)
+				
+	if SwitchStates.gate_state == true:
+		toggle_tiles(0)
 
-func toggle_tiles() -> void:
+func toggle_tiles(anim_time: float = .3) -> void:
 	if !can_switch_world:
 		return
 		
@@ -34,13 +36,13 @@ func toggle_tiles() -> void:
 		if progress == 0:
 			tween.tween_method(\
 				func(p): world.set_cell(cell_cord, 0, atlas_cords, p + 1), \
-				0, 8, world_animation_time)
+				0, 8, anim_time)
 			
 		# retract extended tiles
 		if progress == 8:
 			tween.parallel().tween_method(\
 				func(p): world.set_cell(cell_cord, 0, atlas_cords, p + 1), \
-				8, 0, world_animation_time)
+				8, 0, anim_time)
 						
 	tween.chain().tween_property(self, "can_switch_world", true, 0)
 		
