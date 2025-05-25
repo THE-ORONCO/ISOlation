@@ -22,7 +22,8 @@ func _attach_item_to_player(new_item: Item):
 	new_item.set_deferred("position", Vector2.ZERO)
 
 func remember():
-	self.slot.reparent(self)
+	if slot != null:
+		self.slot.reparent(self)
 
 func use():
 	if slot != null && player != null:

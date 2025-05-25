@@ -1,7 +1,7 @@
 class_name Player 
 extends CharacterBody2D
 
-@export_range(1, 2000) var speed: float = 1500
+@export_range(1, 2000) var speed: float = 1800
 @export_range(1, 20) var nav_lookahead: float = 5
 @export_range(0, 270, 120) var rot: float:
 	get: return rot
@@ -16,7 +16,7 @@ extends CharacterBody2D
 			270: set_collision_layer_value(3, false)
 
 @export_group("interaction")
-@export_range(10, 50) var interact_prompt_max_height: float = 15
+@export_range(10, 50) var interact_prompt_max_height: float = 30
 var _interact_prompt_height: float = 0
 @export_range(1, 5) var interact_prompt_max_r: float = 3
 var _r_interact_circle: float = 0
@@ -159,7 +159,7 @@ var _interact_tween: Tween = null
 func _close_to_interactible(thing: Node2D) -> void:
 	_can_interact = true
 	_show_interact_prompt = true
-	if thing is Door:
+	if thing.get_parent() != null && thing.get_parent() is Door:
 		_show_hope = true
 	_tween_in_interact_prompt()
 

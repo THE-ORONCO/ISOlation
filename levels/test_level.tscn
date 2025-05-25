@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ifam668uy4sn"]
+[gd_scene load_steps=12 format=4 uid="uid://ifam668uy4sn"]
 
 [ext_resource type="Script" uid="uid://cgktrpd5kjsfh" path="res://levels/level.gd" id="1_4n8tn"]
 [ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_w7r7j"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://11rlxflpmrq0" path="res://entities/umbrella/umbrella.tscn" id="8_wndkh"]
 [ext_resource type="PackedScene" uid="uid://btiypue4n63pp" path="res://entities/button/button.tscn" id="9_ly3hx"]
 [ext_resource type="PackedScene" uid="uid://ilaetphb7hyb" path="res://entities/sound_bowl/sound_bowl.tscn" id="10_4n8tn"]
+[ext_resource type="PackedScene" uid="uid://csug5q6fay53p" path="res://entities/bench/Bench.tscn" id="11_wkb0e"]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_4n8tn")
@@ -54,3 +55,6 @@ position = Vector2(-2, 45)
 
 [node name="SoundBowl" parent="." instance=ExtResource("10_4n8tn")]
 position = Vector2(24, 32)
+
+[node name="Bench" parent="." instance=ExtResource("11_wkb0e")]
+position = Vector2(-41, 9)
