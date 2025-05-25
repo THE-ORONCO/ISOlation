@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.noop"
-type="PackedDataContainer"
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
 uid="uid://crop65e8r8i6w"
 path="res://.godot/imported/column.aseprite-92b925efb89d20659c2382a48ff4cf78.res"
 
@@ -12,3 +12,8 @@ dest_files=["res://.godot/imported/column.aseprite-92b925efb89d20659c2382a48ff4c
 
 [params]
 
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12

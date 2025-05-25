@@ -1,0 +1,19 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://r5o6sld6uysc"
+path="res://.godot/imported/items and enviremente.aseprite-c740102b57c3096b8eda5c29abef306f.res"
+
+[deps]
+
+source_file="res://levels/items and enviremente.aseprite"
+dest_files=["res://.godot/imported/items and enviremente.aseprite-c740102b57c3096b8eda5c29abef306f.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12

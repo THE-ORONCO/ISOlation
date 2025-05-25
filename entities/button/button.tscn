@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://btiypue4n63pp"]
 
 [ext_resource type="Script" uid="uid://ctjywebrvnsfc" path="res://entities/button/button.gd" id="1_4tlb3"]
-[ext_resource type="Texture2D" uid="uid://fuk6kfitvj1p" path="res://icon.svg" id="2_7gf2j"]
+[ext_resource type="SpriteFrames" uid="uid://cjyej1qkmdrgx" path="res://entities/button/button.aseprite" id="2_7gf2j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gf2j"]
 radius = 8.0
@@ -10,9 +10,10 @@ radius = 8.0
 y_sort_enabled = true
 script = ExtResource("1_4tlb3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.117162, 0.117162)
-texture = ExtResource("2_7gf2j")
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_7gf2j")
+animation = &"press"
+offset = Vector2(0, -5)
 
 [node name="Hit" type="StaticBody2D" parent="."]
 y_sort_enabled = true
@@ -21,3 +22,5 @@ collision_mask = 0
 
 [node name="Box" type="CollisionShape2D" parent="Hit"]
 shape = SubResource("CircleShape2D_7gf2j")
+
+[connection signal="animation_finished" from="Anim" to="." method="_press_finished"]
