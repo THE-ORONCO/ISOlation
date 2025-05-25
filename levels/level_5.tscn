@@ -18,7 +18,7 @@ tile_set = ExtResource("2_mg3yy")
 [node name="World2" type="TileMapLayer" parent="." index="2"]
 unique_name_in_owner = true
 rotation = -0.000387395
-tile_map_data = PackedByteArray("AAD2//r/AAAEAAoAAAD3//v/AAAEAAoAAAD4//z/AAAEAAoAAAD5//3/AAAEAAoAAAD6//7/AAAEAAoAAAD7////AAAEAAoAAAD8/wAAAAAEAAoAAAD9/wEAAAAEAAoAAAD+/wIAAAAEAAoAAAD//wMAAAAEAAoAAAD5//f/AAAEAAsAAAD7//n/AAAEAAsAAAD8//r/AAAEAAsAAAD9//v/AAAEAAsAAAD6//j/AAAEAAsAAAA=")
+tile_map_data = PackedByteArray("AAD2//r/AAAEAAoAAAD3//v/AAAEAAoAAAD4//z/AAAEAAoAAAD5//3/AAAEAAoAAAD6//7/AAAEAAoAAAD7////AAAEAAoAAAD8/wAAAAAEAAoAAAD9/wEAAAAEAAoAAAD+/wIAAAAEAAoAAAD//wMAAAAEAAoAAAD5//f/AAAEAAsAAAD7//n/AAAEAAsAAAD8//r/AAAEAAsAAAD6//j/AAAEAAsAAAA=")
 tile_set = ExtResource("2_mg3yy")
 
 [node name="Door" parent="." index="4" instance=ExtResource("4_br4so")]
