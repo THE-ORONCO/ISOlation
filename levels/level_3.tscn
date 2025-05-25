@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://dpmo8r4dppj7m"]
+[gd_scene load_steps=5 format=4 uid="uid://b6rffapjvry5u"]
 
 [ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_vkd0v"]
 [ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_hldmh"]
 [ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="3_gew73"]
 [ext_resource type="PackedScene" uid="uid://11rlxflpmrq0" path="res://entities/umbrella/umbrella.tscn" id="4_bmgug"]
 
-[node name="BaseLevel" instance=ExtResource("1_vkd0v")]
+[node name="BaseLevel2" instance=ExtResource("1_vkd0v")]
 
 [node name="World" parent="." index="0"]
 modulate = Color(1, 1, 1, 1)
@@ -18,6 +18,7 @@ tile_set = ExtResource("2_hldmh")
 
 [node name="Door" parent="." index="3" instance=ExtResource("3_gew73")]
 position = Vector2(180, -286)
+target_level = "level_5"
 
 [node name="Umbrella" parent="." index="4" instance=ExtResource("4_bmgug")]
 position = Vector2(127, -90)
