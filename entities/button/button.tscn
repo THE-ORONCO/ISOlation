@@ -11,8 +11,10 @@ y_sort_enabled = true
 script = ExtResource("1_4tlb3")
 
 [node name="Anim" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = ExtResource("2_7gf2j")
 animation = &"press"
+autoplay = "idle"
 offset = Vector2(0, -5)
 
 [node name="Hit" type="StaticBody2D" parent="."]
