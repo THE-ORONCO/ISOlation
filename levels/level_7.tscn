@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=4 uid="uid://x64swfsgrjt7"]
+
+[ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_jm8gk"]
+[ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="2_w8d84"]
+[ext_resource type="PackedScene" uid="uid://do7lqrde5lg13" path="res://entities/hammer/hammer.tscn" id="3_e8mof"]
+
+[node name="BaseLevel" instance=ExtResource("1_jm8gk")]
+
+[node name="World" parent="." index="0"]
+modulate = Color(1, 1, 1, 1)
+tile_map_data = PackedByteArray("AAD/////AAANAAIAAAD+//7/AAANAAQAAAD+////AAAKAAEAAQD+/wAAAAAKAAMAAgD//wAAAAAKAAMAAQD9/wAAAAALAAAAAQAAAAAAAAAKAAQAAAABAAAAAAANAAIAAQABAAEAAAAJAAIAAQACAAEAAAAKAAQAAAADAAEAAAALAAQAAQADAAAAAAALAAAAAQAEAAAAAAALAAQAAQAEAP//AAALAAAAAQD9/wEAAAALAAQAAQD8/wEAAAAKAAQAAAD7/wEAAAAKAAQAAAD6/wEAAAAJAAIAAQD6/wAAAAANAAQAAAAFAP//AAANAAUAAAD9//z/AAAFAAwAAAD8//r/AAAFAAwAAAD7//j/AAAFAAwAAAD7//f/AAAKAAMAAAD8//f/AAALAAQAAAD8//b/AAAMAAMAAAD7//X/AAAMAAEAAAD8//X/AAANAAIAAAD7//b/AAALAAIAAAD6//b/AAAKAAEAAAD6//f/AAAJAAIAAAD6//X/AAALAAAAAAD4//X/AAAFAAsAAAD2//T/AAAFAAsAAAD1//T/AAALAAQAAAD1//P/AAANAAIAAAD0//P/AAALAAAAAADz//T/AAALAAAAAAD0//T/AAALAAIABwD0//X/AAALAAQAAADz//X/AAAJAAIAAADz//b/AAAFAAwAAAD0//j/AAAFAAwAAAD1//r/AAANAAQAAAD0//v/AAAJAAQAAAD1//v/AAALAAQAAQA=")
+
+[node name="Door" parent="." index="2" instance=ExtResource("2_w8d84")]
+position = Vector2(-76, -47)
+target_level = "level_8"
+
+[node name="Door2" parent="." index="3" instance=ExtResource("2_w8d84")]
+position = Vector2(-102, -135)
+scale = Vector2(-1, 1)
+target_level = "level_10"
+
+[node name="Hammer" parent="." index="4" instance=ExtResource("3_e8mof")]
+position = Vector2(98, -117)

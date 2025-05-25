@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://bisau8lp5487l"]
+[gd_scene load_steps=4 format=4 uid="uid://b5w7wtpvfbcos"]
 
 [ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_fwt2v"]
 [ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_t0qhu"]
 [ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="3_t6q73"]
 
-[node name="BaseLevel" instance=ExtResource("1_fwt2v")]
+[node name="BaseLevel2" instance=ExtResource("1_fwt2v")]
 
 [node name="World" parent="." index="0"]
 modulate = Color(1, 1, 1, 1)
@@ -17,6 +17,8 @@ tile_set = ExtResource("2_t0qhu")
 
 [node name="Door" parent="." index="3" instance=ExtResource("3_t6q73")]
 position = Vector2(197, -23)
+target_level = "level_5"
 
 [node name="Door2" parent="." index="4" instance=ExtResource("3_t6q73")]
 position = Vector2(260, -103)
+target_level = "level_9"

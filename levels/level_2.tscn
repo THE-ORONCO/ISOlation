@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=4 uid="uid://wwv0p7g0qtxc"]
+[gd_scene load_steps=4 format=4 uid="uid://wwv0p7g0qtxc"]
 
 [ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="2_pqqg8"]
+[ext_resource type="PackedScene" uid="uid://csug5q6fay53p" path="res://entities/bench/Bench.tscn" id="3_0srwa"]
 
-[node name="BaseLevel" instance=ExtResource("1_mi4ay")]
+[node name="BaseLevel2" instance=ExtResource("1_mi4ay")]
 
 [node name="World" parent="." index="0"]
 modulate = Color(1, 1, 1, 1)
@@ -11,3 +12,7 @@ tile_map_data = PackedByteArray("AAD//wEAAAAJAAUAAAD//wAAAAAMAAMAAQD+/wAAAAAJAAI
 
 [node name="Door" parent="." index="2" instance=ExtResource("2_pqqg8")]
 position = Vector2(134, -184)
+target_level = "level_3"
+
+[node name="Bench" parent="." index="3" instance=ExtResource("3_0srwa")]
+position = Vector2(76, -156)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=4 uid="uid://dsv6ml4cbub0i"]
+
+[ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_2b88s"]
+[ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_4mk42"]
+[ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="3_rmft0"]
+[ext_resource type="PackedScene" uid="uid://csug5q6fay53p" path="res://entities/bench/Bench.tscn" id="4_4kux0"]
+
+[node name="BaseLevel" instance=ExtResource("1_2b88s")]
+
+[node name="World" parent="." index="0"]
+modulate = Color(1, 1, 1, 1)
+tile_map_data = PackedByteArray("AAD//wAAAAALAAIAAAD/////AAAMAAEAAAD+////AAALAAAAAAD+/wAAAAAKAAEAAAAAAAAAAAAMAAMAAAAAAP//AAANAAIAAAD//wEAAAAKAAMAAAAAAAEAAAALAAQAAAD+//3/AAAFAAwAAAD+/wEAAAAJAAIAAAD9//r/AAALAAIAAgD+//r/AAALAAIAAAD+//v/AAAKAAMAAAD///v/AAALAAQAAAD///r/AAAMAAMAAAD///n/AAALAAIABwD+//n/AAAMAAEAAAD9//n/AAAMAAEAAAD9//v/AAAFAAwAAAD8//v/AAALAAQAAAD8//r/AAALAAIAAQD8//n/AAAMAAEAAAD7//v/AAAJAAIAAAD7//r/AAAKAAEAAAD7//n/AAALAAIABgD7//j/AAANAAIAAAD6//j/AAAKAAEAAQD6//n/AAAJAAIAAAD6//f/AAAMAAQAAAD6//b/AAAMAAQAAAD6//X/AAAMAAQAAAD///j/AAALAAAAAAAAAPj/AAAMAAMAAgAAAPn/AAALAAQAAAAAAPf/AAAMAAQAAAAAAPb/AAAMAAQAAAAAAPX/AAAMAAQAAAD7//T/AAALAAQAAQD6//T/AAALAAAAAQD7//P/AAALAAAAAQD8//P/AAAKAAMAAgD9//P/AAAKAAMAAAD+//P/AAAKAAMAAQD///P/AAANAAIAAQD///T/AAAJAAIAAQAAAPT/AAANAAIAAQD9//L/AAAMAAEAAAD8//L/AAALAAAAAAD+//L/AAANAAIAAAABAPb/AAAFAAsAAAADAPf/AAAFAAsAAAAFAPj/AAAFAAsAAAAHAPn/AAAFAAsAAAAJAPr/AAAKAAEAAAAJAPn/AAALAAAAAAAKAPn/AAALAAIADwAKAPr/AAALAAIAAAAKAPv/AAALAAIADQAJAPv/AAAJAAIAAAAKAPz/AAAJAAUAAAALAPv/AAALAAQAAAALAPr/AAAMAAMAAAALAPn/AAANAAIAAAAKAPj/AAANAAQAAAA=")
+
+[node name="World2" type="TileMapLayer" parent="." index="1"]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAD4//D/AAACAAoAAAD5//H/AAAEAAoAAAD6//L/AAAEAAoAAAD7//P/AAAEAAoAAAD8//T/AAAEAAoAAAD9//X/AAAEAAoAAAD4//7/AAACAAsAAAD5////AAAEAAsAAAD6/wAAAAAEAAsAAAD7/wEAAAAEAAsAAAD8/wIAAAAEAAsAAAD9/wMAAAAEAAsAAAD+/wQAAAAEAAsAAAD8//L/AAABAAkAAAD+//L/AAABAAkAAAD7//H/AAABAAgAAAD9//H/AAABAAgAAAD6//D/AAABAAcAAAD8//D/AAABAAcAAAAJAPn/AAABAAkAAAAIAPj/AAABAAgAAAAGAPb/AAABAAcAAAAHAPf/AAABAAgAAAA=")
+tile_set = ExtResource("2_4mk42")
+
+[node name="Door" parent="." index="3" instance=ExtResource("3_rmft0")]
+position = Vector2(310, 16)
+target_level = "level_5"
+
+[node name="Bench" parent="." index="4" instance=ExtResource("4_4kux0")]
+position = Vector2(79, -79)

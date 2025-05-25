@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=4 uid="uid://dyrkw2twglhui"]
+[gd_scene load_steps=3 format=4 uid="uid://bb3buis3dpfk1"]
 
 [ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_823pn"]
 [ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="2_iss0w"]
@@ -11,3 +11,4 @@ tile_map_data = PackedByteArray("AAD+////AAALAAAAAAD+/wAAAAAKAAEAAAD//wAAAAALAAI
 
 [node name="Door" parent="." index="2" instance=ExtResource("2_iss0w")]
 position = Vector2(86, -191)
+target_level = "level_1"
