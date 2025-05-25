@@ -20,7 +20,7 @@ func _ready() -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	if Engine.is_editor_hint():
+	if !Engine.is_editor_hint():
 		draw_circle(%Sprite.position, 3, _color)
 
 func interact():
