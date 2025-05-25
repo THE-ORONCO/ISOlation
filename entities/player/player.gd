@@ -1,7 +1,7 @@
 class_name Player 
 extends CharacterBody2D
 
-@export_range(1, 2000) var speed: float = 1500
+@export_range(1, 2000) var speed: float = 1800
 @export_range(1, 20) var nav_lookahead: float = 5
 @export_range(0, 270, 120) var rot: float:
 	get: return rot
@@ -16,7 +16,7 @@ extends CharacterBody2D
 			270: set_collision_layer_value(3, false)
 
 @export_group("interaction")
-@export_range(10, 50) var interact_prompt_max_height: float = 15
+@export_range(10, 50) var interact_prompt_max_height: float = 30
 var _interact_prompt_height: float = 0
 @export_range(1, 5) var interact_prompt_max_r: float = 3
 var _r_interact_circle: float = 0
@@ -40,7 +40,8 @@ var movement_delta: float
 var _can_interact: bool = false
 
 func _ready() -> void:
-	Inventory.player = self
+	Inventory.register(self)
+
 	agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	agent.set_navigation_layer_value(walk_on, true)
 	
@@ -48,6 +49,11 @@ func _ready() -> void:
 		Rotation.TOP: pass
 		Rotation.LEFT: %Sprite.rotation = -PI/2
 		Rotation.RIGHT: %Sprite.rotation = PI/2
+
+func _exit_tree() -> void:
+	Inventory.remember()
+	if _interact_tween != null:
+		_interact_tween.kill()
 
 const WATER_LAYER: int = 7
 
@@ -103,21 +109,21 @@ func _physics_process(delta):
 	
 	_navigate_in_direction(input, delta)
 	
-	if Input.is_action_just_pressed("interact") && _can_interact \
-		&& (%Interaction.has_overlapping_areas() || %Interaction.has_overlapping_bodies()):
-		var areas: Array[Area2D] = %Interaction.get_overlapping_areas()
-		for area in areas:
-			var parent = area.get_parent()
-			if parent != null && parent is Interactible:
-				parent.interact()
-		
-		var bodies: Array[Node2D] = %Interaction.get_overlapping_bodies()
-		for body in bodies:
-			var parent = body.get_parent()
-			if parent != null && parent is Interactible:
-				parent.interact()
-	else:
-		Inventory.use()
+	if Input.is_action_just_pressed("interact"):
+		if _can_interact && %Interaction.has_overlapping_areas() || %Interaction.has_overlapping_bodies():
+			var areas: Array[Area2D] = %Interaction.get_overlapping_areas()
+			for area in areas:
+				var parent = area.get_parent()
+				if parent != null && parent is Interactible:
+					parent.interact()
+			
+			var bodies: Array[Node2D] = %Interaction.get_overlapping_bodies()
+			for body in bodies:
+				var parent = body.get_parent()
+				if parent != null && parent is Interactible:
+					parent.interact()
+		else:
+			Inventory.use()
 
 func _navigate_in_direction(input: Vector2, delta: float) -> void:
 	# skew input because we move asymmetrically
@@ -147,15 +153,13 @@ func _navigate_in_direction(input: Vector2, delta: float) -> void:
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
 
-func _exit_tree() -> void:
-	if _interact_tween != null:
-		_interact_tween.kill()
+
 
 var _interact_tween: Tween = null
 func _close_to_interactible(thing: Node2D) -> void:
 	_can_interact = true
 	_show_interact_prompt = true
-	if thing is Door:
+	if thing.get_parent() != null && thing.get_parent() is Door:
 		_show_hope = true
 	_tween_in_interact_prompt()
 

@@ -22,9 +22,14 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 HopeManager="*res://managers/hope_manager.gd"
 LevelManager="*res://managers/level_manager.tres.gd"
 SwitchStates="*res://managers/switch_states.gd"
-Inventory="*res://managers/inventory.gd"
 DoorTracker="*res://managers/door_tracker.gd"
 Colors="*res://managers/colors.gd"
+Inventory="*res://managers/inventory.tscn"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=270
 
 [editor_plugins]
 
