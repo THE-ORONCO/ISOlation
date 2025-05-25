@@ -14,9 +14,9 @@ var _color: Color
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
-		return
+		return     
 	
-	_color = DoorTracker.color_for(self.get_path())
+	_color = DoorTracker.color_for(str(self.get_path()))
 	queue_redraw()
 
 func _draw() -> void:
@@ -27,7 +27,7 @@ func interact():
 	%Audio.play()
 	%Audio.finished.connect(func(): 
 		HopeManager.decrease()
-		DoorTracker.track(self.get_path(), Colors.PLAYER_COLOR)
+		DoorTracker.track(str(self.get_path()), Colors.PLAYER_COLOR)
 		LevelManager.load_level(target_level)
 		)
 	

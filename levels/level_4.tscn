@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_t0qhu"]
 [ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="3_t6q73"]
 
-[node name="BaseLevel2" instance=ExtResource("1_fwt2v")]
+[node name="Level4" instance=ExtResource("1_fwt2v")]
 
 [node name="World" parent="." index="0"]
 modulate = Color(1, 1, 1, 1)

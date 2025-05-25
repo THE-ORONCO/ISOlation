@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="3_rmft0"]
 [ext_resource type="PackedScene" uid="uid://csug5q6fay53p" path="res://entities/bench/Bench.tscn" id="4_4kux0"]
 
-[node name="BaseLevel" instance=ExtResource("1_2b88s")]
+[node name="Level8" instance=ExtResource("1_2b88s")]
 
 [node name="World" parent="." index="0"]
 modulate = Color(1, 1, 1, 1)

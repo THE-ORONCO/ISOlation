@@ -1,4 +1,4 @@
-extends Item
+class_name SoundBowl extends Item
 
 func use(player: Player):
 	if !%Audio.playing:
