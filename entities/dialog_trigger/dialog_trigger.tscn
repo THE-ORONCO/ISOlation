@@ -50,8 +50,12 @@ theme_override_font_sizes/bold_italics_font_size = 8
 theme_override_font_sizes/mono_font_size = 8
 theme_override_font_sizes/bold_font_size = 8
 theme_override_styles/background = SubResource("StyleBoxFlat_1fvxw")
+bbcode_enabled = true
 shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="Detection" to="." method="_player_entered"]

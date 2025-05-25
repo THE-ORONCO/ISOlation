@@ -56,10 +56,10 @@ var move_dir: Vector2 = Vector2.ZERO
 
 func _draw() -> void:
 	# debug drawing for path finding
-	#draw_circle(move_dir * nav_lookahead, 3, Color.RED)
-	#draw_line(Vector2.ZERO, move_dir * 20, Color.RED, 4)
-	#for point in agent.get_current_navigation_path():
-		#draw_circle(point - self.position, 2, Color.PINK)
+	draw_circle(move_dir * nav_lookahead, 3, Color.RED)
+	draw_line(Vector2.ZERO, move_dir * 20, Color.RED, 4)
+	for point in agent.get_current_navigation_path():
+		draw_circle(point - self.position, 2, Color.PINK)
 	if _show_interact_prompt:
 		draw_circle(Vector2.UP * _interact_prompt_height, _r_interact_circle, Color.WHITE)
 	
