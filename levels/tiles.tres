@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=64 format=3 uid="uid://bd5hjbfk8ncjl"]
+[gd_resource type="TileSet" load_steps=69 format=3 uid="uid://bd5hjbfk8ncjl"]
 
 [ext_resource type="Texture2D" uid="uid://ctdjlki6ay6qs" path="res://levels/tiles.aseprite" id="1_psjq4"]
 
@@ -7,6 +7,20 @@ vertices = PackedVector2Array(16, 0, 0, 8, -16, 0, 0, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)])
 agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_s0ek6"]
+vertices = PackedVector2Array(16, 0, 0, 8, -16, 0, 0, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nq3i1"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qde1m"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d8d3c"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jstn7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_psjq4"]
 vertices = PackedVector2Array(16, 0, 0, 8, -16, 0, 0, -8)
@@ -1304,9 +1318,16 @@ use_texture_padding = false
 0:15/0 = 0
 0:15/0/texture_origin = Vector2i(0, -8)
 0:15/0/modulate = Color(0, 0.688021, 0.688021, 1)
+0:15/0/terrain_set = 0
+0:15/0/terrain = 0
 0:15/1 = 1
 0:15/1/texture_origin = Vector2i(0, -8)
 0:15/1/modulate = Color(0, 0.688021, 0.688021, 1)
+0:15/1/terrain_set = 0
+0:15/1/terrain = 0
+0:15/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_s0ek6")
+0:15/1/navigation_layer_1/polygon = SubResource("NavigationPolygon_nq3i1")
+0:15/1/navigation_layer_2/polygon = SubResource("NavigationPolygon_qde1m")
 0:15/1/custom_data_0 = true
 0:15/2 = 2
 0:15/2/texture_origin = Vector2i(0, -6)
@@ -1340,11 +1361,17 @@ use_texture_padding = false
 0:15/8 = 8
 0:15/8/texture_origin = Vector2i(0, 6)
 0:15/8/modulate = Color(0, 0.688021, 0.688021, 1)
+0:15/8/terrain_set = 0
 0:15/8/custom_data_0 = true
 0:15/8/custom_data_1 = 7
 0:15/9 = 9
 0:15/9/texture_origin = Vector2i(0, 8)
 0:15/9/modulate = Color(0, 0.688021, 0.688021, 1)
+0:15/9/terrain_set = 0
+0:15/9/terrain = 0
+0:15/9/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
+0:15/9/navigation_layer_1/polygon = SubResource("NavigationPolygon_d8d3c")
+0:15/9/navigation_layer_2/polygon = SubResource("NavigationPolygon_jstn7")
 0:15/9/custom_data_0 = true
 0:15/9/custom_data_1 = 8
 

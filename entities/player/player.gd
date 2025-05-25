@@ -130,7 +130,8 @@ func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
 
 func _exit_tree() -> void:
-	_interact_tween.kill()
+	if _interact_tween != null:
+		_interact_tween.kill()
 
 var _interact_tween: Tween = null
 func _close_to_interactible(_thing: Node2D) -> void:
