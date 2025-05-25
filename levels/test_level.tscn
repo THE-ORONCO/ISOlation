@@ -49,3 +49,7 @@ position = Vector2(-18, 25)
 
 [node name="Button" parent="." instance=ExtResource("9_ly3hx")]
 position = Vector2(-2, 45)
+
+[node name="Umbrella2" parent="." instance=ExtResource("8_wndkh")]
+position = Vector2(22, 39)
+rotation = 1.22173
