@@ -20,7 +20,8 @@ func _ready() -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	draw_circle(%Sprite.position, 3, _color)
+	if Engine.is_editor_hint():
+		draw_circle(%Sprite.position, 3, _color)
 
 func interact():
 	HopeManager.decrease()

@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7n1rxtwoj0qk"]
 
-[ext_resource type="Texture2D" uid="uid://fuk6kfitvj1p" path="res://icon.svg" id="1_120vl"]
 [ext_resource type="Script" uid="uid://b231ayts8c71t" path="res://levels/door/door.gd" id="1_gxcpb"]
+[ext_resource type="Texture2D" uid="uid://crop65e8r8i6w" path="res://levels/column.aseprite" id="2_gxcpb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xc1x7"]
-radius = 11.0454
+radius = 16.1245
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxcpb"]
-radius = 5.0
-height = 16.0
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_gxcpb"]
+points = PackedVector2Array(9, 17, -9, 9, -9, -18, 9, -10)
 
 [node name="Door" type="Node2D"]
 y_sort_enabled = true
@@ -17,10 +16,9 @@ script = ExtResource("1_gxcpb")
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -9)
-rotation = 0.436332
-scale = Vector2(0.1, 0.139)
-skew = -0.436332
-texture = ExtResource("1_120vl")
+texture = ExtResource("2_gxcpb")
+region_enabled = true
+region_rect = Rect2(46, 29, 18, 36.0267)
 
 [node name="Interact" type="Area2D" parent="."]
 position = Vector2(0, -10)
@@ -36,7 +34,7 @@ collision_mask = 0
 
 [node name="Box" type="CollisionShape2D" parent="Collision"]
 position = Vector2(0, -9)
-shape = SubResource("CapsuleShape2D_gxcpb")
+shape = SubResource("ConvexPolygonShape2D_gxcpb")
 
 [connection signal="body_entered" from="Interact" to="." method="_entered_interact_range"]
 [connection signal="body_exited" from="Interact" to="." method="_exited_interact_range"]
