@@ -13,6 +13,9 @@ signal interact_range_exited()
 var _color: Color
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	_color = DoorTracker.color_for(self.get_path())
 	queue_redraw()
 

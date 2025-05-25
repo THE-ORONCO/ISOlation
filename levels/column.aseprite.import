@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://crop65e8r8i6w"
+path="res://.godot/imported/column.aseprite-92b925efb89d20659c2382a48ff4cf78.res"
+
+[deps]
+
+source_file="res://levels/column.aseprite"
+dest_files=["res://.godot/imported/column.aseprite-92b925efb89d20659c2382a48ff4cf78.res"]
+
+[params]
+
