@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=4 uid="uid://cvtibntio0eic"]
+
+[ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_yutr5"]
+[ext_resource type="PackedScene" uid="uid://ilaetphb7hyb" path="res://entities/sound_bowl/sound_bowl.tscn" id="2_lqyyr"]
+[ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="3_e5bbe"]
+
+[node name="BaseLevel" instance=ExtResource("1_yutr5")]
+
+[node name="World" parent="." index="0"]
+modulate = Color(1, 1, 1, 1)
+tile_map_data = PackedByteArray("AAAAAAEAAAAKAAMAAQAAAAAAAAAMAAMAAAAAAP//AAANAAIAAAD//wEAAAAKAAMAAAD//wAAAAALAAIAAAD/////AAAMAAEAAAD+/wEAAAAKAAMAAgD+/wAAAAAKAAEAAAD+////AAALAAAAAAD9/wEAAAAKAAQAAAD8/wEAAAAJAAQAAAD6/wAAAAAFAAsAAAD4////AAAFAAsAAAD3//7/AAAMAAMAAAD3////AAALAAQAAAD2////AAAJAAIAAAD2//7/AAAKAAEAAAD2//3/AAAKAAEAAAD3//3/AAALAAIAAQD2//z/AAALAAAAAAD3//z/AAAMAAEAAAD4//z/AAAMAAEAAAD5//z/AAAMAAEAAAD6//z/AAAMAAEAAAD6//3/AAAKAAMAAAD7//3/AAAAAAoAAAD7//z/AAAAAAoAAAD8//z/AAAMAAEAAAD9//z/AAAMAAEAAAD9//3/AAAKAAMAAAD8//3/AAAKAAMAAAD+//z/AAAMAAEAAAD+//3/AAAKAAMAAAD///3/AAALAAQAAAD///z/AAANAAIAAAD5//3/AAAKAAMAAAD4//3/AAAKAAMAAAD0//z/AAAFAAsAAAD8//r/AAAFAAwAAAD7//j/AAAFAAwAAAD7//f/AAALAAQAAAD7//b/AAANAAIAAAD6//f/AAAKAAMAAAD6//b/AAAMAAEAAAD5//f/AAAKAAMAAAD5//b/AAAMAAEAAAD4//f/AAAKAAMAAAD4//b/AAAMAAEAAAD3//f/AAACAAoAAAD3//b/AAAMAAEAAAD2//f/AAAKAAMAAAD2//b/AAAMAAEAAAD1//f/AAAKAAMAAAD1//b/AAAMAAEAAAD0//f/AAAKAAMAAAD0//b/AAAMAAEAAADz//f/AAAKAAEABADz//b/AAALAAAAAADz//z/AAAJAAUAAADz//v/AAAMAAQAAADz//r/AAAMAAQAAADz//n/AAAMAAQAAADz//j/AAAMAAQAAAD4//j/AAAEAAoAAAD5//n/AAAEAAoAAAD6//r/AAAEAAoAAAD8//7/AAAEAAoAAAABAAEAAAAKAAQAAAACAAEAAAALAAQAAQACAAAAAAAMAAQAAAACAP//AAAMAAQAAAACAP7/AAAMAAQAAAACAP3/AAAMAAQAAAACAPz/AAAMAAQAAAABAPv/AAAJAAQAAAACAPv/AAAMAAMAAwACAPr/AAAMAAQAAAACAPn/AAANAAQAAAA=")
+
+[node name="SoundBowl" parent="." index="2" instance=ExtResource("2_lqyyr")]
+position = Vector2(46, -32)
+
+[node name="Door" parent="." index="3" instance=ExtResource("3_e5bbe")]
+position = Vector2(-75, -111)
+target_level = "level_8"
+
+[node name="Door2" parent="." index="4" instance=ExtResource("3_e5bbe")]
+position = Vector2(166, -40)
