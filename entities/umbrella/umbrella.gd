@@ -2,10 +2,11 @@
 extends Item
 
 func interact():
-	Inventory.slot = self
-	self.reparent(%Player)
+	%Box.disabled = true
+	Inventory.pick_up(self)
 	
-func use():
-	match %Anim.animation:
-		"open": %Anim.play("closed")
-		"closed": %Anim.play("open")
+func apply(player: Player):
+	player.can_walk_through_water(true)
+
+func remove_from(player:Player):
+	player.can_walk_through_water(false)

@@ -1,3 +1,4 @@
+class_name Player 
 extends CharacterBody2D
 
 @export_range(1, 2000) var speed: float = 1500
@@ -39,6 +40,7 @@ var movement_delta: float
 var _can_interact: bool = false
 
 func _ready() -> void:
+	Inventory.player = self
 	agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	agent.set_navigation_layer_value(walk_on, true)
 	
@@ -47,6 +49,13 @@ func _ready() -> void:
 		Rotation.LEFT: %Sprite.rotation = -PI/2
 		Rotation.RIGHT: %Sprite.rotation = PI/2
 
+const WATER_LAYER: int = 7
+
+func can_walk_through_water(val: bool) -> void:
+	self.set_collision_mask_value(WATER_LAYER, !val)
+
+func reset():
+	can_walk_through_water(false)
 
 func set_movement_target(movement_target: Vector2):
 	agent.set_target_position(movement_target)
@@ -143,10 +152,11 @@ func _exit_tree() -> void:
 		_interact_tween.kill()
 
 var _interact_tween: Tween = null
-func _close_to_interactible(_thing: Node2D) -> void:
+func _close_to_interactible(thing: Node2D) -> void:
 	_can_interact = true
 	_show_interact_prompt = true
-	_show_hope = true
+	if thing is Door:
+		_show_hope = true
 	_tween_in_interact_prompt()
 
 func _tween_in_interact_prompt():

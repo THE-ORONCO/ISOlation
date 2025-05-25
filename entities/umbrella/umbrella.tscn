@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://11rlxflpmrq0"]
+[gd_scene load_steps=4 format=3 uid="uid://11rlxflpmrq0"]
 
 [ext_resource type="Script" uid="uid://bb1ecxjynq3ur" path="res://entities/umbrella/umbrella.gd" id="1_qcyj4"]
-[ext_resource type="SpriteFrames" uid="uid://bd7wyh42nyfhf" path="res://entities/umbrella/umbrella.aseprite" id="2_q0ct0"]
+[ext_resource type="Texture2D" uid="uid://r5o6sld6uysc" path="res://levels/items and enviremente.aseprite" id="2_q0ct0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxcwu"]
 
 [node name="Umbrella" type="Node2D"]
 script = ExtResource("1_qcyj4")
 
-[node name="Anim" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("2_q0ct0")
+offset = Vector2(0, -8)
+region_enabled = true
+region_rect = Rect2(256, 0, 32, 32)
+
+[node name="Hit" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
-sprite_frames = ExtResource("2_q0ct0")
-animation = &"closed"
-autoplay = "closed"
+collision_layer = 16
+collision_mask = 0
+
+[node name="Box" type="CollisionShape2D" parent="Hit"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_dxcwu")

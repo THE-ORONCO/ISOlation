@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c412tje610g0y"
+path="res://.godot/imported/stomp.wav-a19d5943077afd5086883b724f7ca674.sample"
+
+[deps]
+
+source_file="res://Isolation_Sounds/Stone Sound/stomp.wav"
+dest_files=["res://.godot/imported/stomp.wav-a19d5943077afd5086883b724f7ca674.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
