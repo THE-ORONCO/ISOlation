@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=4 uid="uid://dq1c4gga8rkdr"]
+
+[ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_6up2b"]
+[ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_vflpa"]
+[ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="3_pltw0"]
+
+[node name="BaseLevel" instance=ExtResource("1_6up2b")]
+
+[node name="World" parent="." index="0"]
+modulate = Color(1, 1, 1, 1)
+tile_map_data = PackedByteArray("AAD//wAAAAALAAIAAAD/////AAALAAIABAD///7/AAANAAIAAAD+//7/AAAMAAEAAAD+////AAALAAIAAAD9////AAAKAAEAAAD9/wAAAAAJAAIAAAD+/wAAAAALAAIAAgD+/wEAAAAJAAIAAAD//wEAAAAKAAMAAAAAAAEAAAALAAQAAAAAAAAAAAAMAAMAAAAAAP//AAANAAIAAAD9//7/AAALAAAAAAD9//z/AAAFAAwAAAD8//r/AAAFAAwAAAD8//n/AAAKAAMAAAD7//j/AAALAAAAAAD8//j/AAAMAAEAAAD9//j/AAANAAIAAAD7//n/AAAJAAIAAAD9//n/AAALAAQAAAD8//b/AAAKAAMAAAD7//b/AAAJAAIAAAD7//X/AAALAAAAAAD9//b/AAALAAQAAAD7/+//AAAEAAoAAAD6/+7/AAAEAAoAAAD5/+3/AAAEAAoAAAD4/+z/AAACAAoAAAD2//P/AAALAAAAAAD2//T/AAAJAAIAAAD7//7/AAAFAAsAAAD5//3/AAAFAAsAAAD3//z/AAAFAAsAAAD1//v/AAAFAAsAAAD0//v/AAAMAAMAAAD0//r/AAANAAIAAADz//r/AAAMAAEAAADz//v/AAALAAIAAADz//z/AAAKAAMAAADy//z/AAAJAAIAAADy//v/AAAKAAEAAADy//r/AAALAAAAAAD9//X/AAANAAIAAAD8//X/AAAMAAEAAAD3//P/AAAMAAMAAgD3//L/AAAMAAQAAAD3//H/AAAMAAQAAAD3//D/AAALAAAAAQD4//D/AAAKAAQAAAD5//D/AAANAAIAAAD5//H/AAAFAAwAAAD6//P/AAAFAAwAAAD3//T/AAALAAQAAAD1//f/AAACAAsAAAD2//j/AAAEAAsAAAD3//n/AAAEAAsAAAD4//r/AAAEAAsAAAD5//v/AAAEAAsAAAD6//z/AAAEAAsAAAD0//z/AAALAAQAAAA=")
+
+[node name="World2" type="TileMapLayer" parent="." index="1"]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAD8//f/AAAAAA8ACQD9//f/AAAAAA8ACQD7//f/AAAAAA8ACQD0//r/AAABAAkAAADz//n/AAABAAgAAADy//j/AAABAAgAAADx//f/AAABAAcAAAD9//X/AAABAAkAAAD8//T/AAABAAgAAAD7//P/AAABAAgAAAD6//L/AAABAAgAAAD5//H/AAABAAgAAAD4//D/AAABAAgAAAD3/+//AAABAAcAAAA=")
+tile_set = ExtResource("2_vflpa")
+
+[node name="Door" parent="." index="3" instance=ExtResource("3_pltw0")]
+position = Vector2(-130, -150)
+scale = Vector2(-1, 1)
+
+[node name="Door2" parent="." index="4" instance=ExtResource("3_pltw0")]
+position = Vector2(51, -178)
+scale = Vector2(-1, 1)

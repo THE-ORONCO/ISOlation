@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=4 uid="uid://dpmo8r4dppj7m"]
+
+[ext_resource type="PackedScene" uid="uid://hy1n3ivw4b7p" path="res://levels/base_level.tscn" id="1_vkd0v"]
+[ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_hldmh"]
+[ext_resource type="PackedScene" uid="uid://c7n1rxtwoj0qk" path="res://levels/door/door.tscn" id="3_gew73"]
+[ext_resource type="PackedScene" uid="uid://11rlxflpmrq0" path="res://entities/umbrella/umbrella.tscn" id="4_bmgug"]
+
+[node name="BaseLevel" instance=ExtResource("1_vkd0v")]
+
+[node name="World" parent="." index="0"]
+modulate = Color(1, 1, 1, 1)
+tile_map_data = PackedByteArray("AAD//wAAAAAKAAMAAAD/////AAALAAIAAAD+////AAALAAIAAwD+//7/AAALAAAAAAD9//z/AAAFAAwAAAD8//r/AAAFAAwAAAD8//3/AAAFAAsAAAD6//z/AAAFAAsAAAD4//v/AAAFAAsAAAD3//v/AAALAAQAAQD3//r/AAANAAIAAQD8//n/AAAJAAIAAAD9//n/AAALAAQAAAD+//j/AAALAAQAAAD9//j/AAALAAIAAQD+//f/AAALAAIAAQD///f/AAALAAQAAAD///7/AAALAAIAAwAAAP7/AAAMAAMAAAAAAP//AAAMAAMAAAD+/wAAAAAKAAMAAAAAAAAAAAALAAQAAAD9////AAALAAAAAAD///3/AAALAAAAAAAAAP3/AAANAAIAAAD9/wAAAAAJAAIAAAD8//j/AAAKAAEAAAD9//f/AAALAAIAAAD1//j/AAAFAAwAAAD0//b/AAAFAAwAAADz//T/AAAFAAwAAAD2//r/AAAJAAQAAADz//P/AAAKAAMAAAD0//P/AAALAAQAAAD+//b/AAALAAIAAAD9//b/AAALAAIAAwD///b/AAAMAAMAAAD+//X/AAAMAAEAAAD9//X/AAALAAAAAAD///X/AAANAAIAAADy//P/AAAJAAIAAADy//L/AAAKAAEAAADy//H/AAAKAAEAAADy//D/AAAKAAEAAADz//D/AAALAAIAAAD0//D/AAAMAAMAAAD0//H/AAAMAAMAAAD0//L/AAAMAAMAAADz//H/AAALAAIAAADz//L/AAALAAIAAADz/+//AAALAAIAAADy/+//AAAKAAEAAAD0/+//AAAMAAMAAAD8//f/AAAKAAEAAAD8//b/AAALAAAAAADz/+7/AAALAAIAAADy/+7/AAAKAAEAAADz/+3/AAALAAIAAAD0/+3/AAALAAIAAAD0/+z/AAAMAAEAAADz/+z/AAALAAIADwDy/+z/AAALAAAAAADy/+3/AAAKAAEAAAD1/+3/AAALAAIABAD2/+7/AAALAAQAAAD2/+3/AAANAAIAAADz/+v/AAAMAAQAAADz/+r/AAAMAAQAAADz/+n/AAANAAQAAAD0/+7/AAALAAIAAQD1/+7/AAAKAAMAAAD1/+z/AAANAAIAAAA=")
+
+[node name="World2" type="TileMapLayer" parent="." index="1"]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AADx/+3/AAAEAAoAAADw/+z/AAAEAAoAAADv/+v/AAACAAoAAADw/+v/AAACAAoAAADu/+v/AAACAAoAAADx/+7/AAAEAAoAAADw/+3/AAAEAAoAAADv/+z/AAAEAAoAAADx/+z/AAAEAAoAAADy/+7/AAAEAAoAAADz/+7/AAAEAAoAAADy/+3/AAAEAAoAAAA=")
+tile_set = ExtResource("2_hldmh")
+
+[node name="Door" parent="." index="3" instance=ExtResource("3_gew73")]
+position = Vector2(180, -286)
+
+[node name="Umbrella" parent="." index="4" instance=ExtResource("4_bmgug")]
+position = Vector2(127, -90)
