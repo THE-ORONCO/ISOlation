@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq0sk8rpt2qlv"]
+
+[ext_resource type="Script" uid="uid://cdgrwpchyyr4t" path="res://levels/end.gd" id="1_xaei0"]
+[ext_resource type="Texture2D" uid="uid://dy76naj0rcmdj" path="res://sprites/Frame_1.png" id="1_xdo5y"]
+[ext_resource type="Texture2D" uid="uid://cwnp7iaonkkti" path="res://sprites/Frame_2.png" id="2_fxp7k"]
+[ext_resource type="AudioStream" uid="uid://cmhmpxe2do3rr" path="res://Isolation_Sounds/Door Sounds/open_door.wav" id="4_ggwng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaei0"]
+atlas = ExtResource("1_xdo5y")
+region = Rect2(0, 0, 480, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggwng"]
+atlas = ExtResource("2_fxp7k")
+region = Rect2(0, 0, 480, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpw7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaei0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggwng")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="End" type="Node2D"]
+script = ExtResource("1_xaei0")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(240, 135)
+sprite_frames = SubResource("SpriteFrames_xpw7s")
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ggwng")

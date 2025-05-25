@@ -24,10 +24,13 @@ func _draw() -> void:
 		draw_circle(%Sprite.position, 3, _color)
 
 func interact():
-	HopeManager.decrease()
-	DoorTracker.track(self.get_path(), Colors.PLAYER_COLOR)
-	LevelManager.load_level(target_level)
-
+	%Audio.play()
+	%Audio.finished.connect(func(): 
+		HopeManager.decrease()
+		DoorTracker.track(self.get_path(), Colors.PLAYER_COLOR)
+		LevelManager.load_level(target_level)
+		)
+	
 func _get_configuration_warnings() -> PackedStringArray:
 	var warn: PackedStringArray = []
 	

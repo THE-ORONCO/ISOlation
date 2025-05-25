@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ISOlation"
-run/main_scene="uid://ifam668uy4sn"
+run/main_scene="uid://bb3buis3dpfk1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,6 +25,7 @@ SwitchStates="*res://managers/switch_states.gd"
 DoorTracker="*res://managers/door_tracker.gd"
 Colors="*res://managers/colors.gd"
 Inventory="*res://managers/inventory.tscn"
+SoundManager="*res://managers/sound_manager.tscn"
 
 [display]
 

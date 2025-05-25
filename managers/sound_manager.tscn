@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://0twokmclmc22"]
+
+[ext_resource type="AudioStream" uid="uid://c0hobk0lqs4oe" path="res://Isolation_Sounds/Background Musik and Sound/Background_1.wav" id="1_6td43"]
+
+[node name="SoundManager" type="Node2D"]
+
+[node name="permanent_background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_6td43")
+volume_db = -18.22
+autoplay = true
