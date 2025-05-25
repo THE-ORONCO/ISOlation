@@ -80,9 +80,18 @@ func arrange_in_circle(n: int, r: float) -> Array:
 func polar2cartesian(r, g):
 	return Vector2(r * cos(g), r* sin(g))
 
-func _physics_process(delta):	
+func _physics_process(delta):
 	queue_redraw()
 	var input: Vector2 = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
+	if input.length_squared() > 0:
+		%Anim.play("walk")
+		if input.x > 0: %Anim.flip_h = false
+		else: 			%Anim.flip_h = true
+	else:
+		%Anim.play("idle")
+		
+
+	
 	_navigate_in_direction(input, delta)
 	
 	if Input.is_action_just_pressed("interact") && _can_interact \
