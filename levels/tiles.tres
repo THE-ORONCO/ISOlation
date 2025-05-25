@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=75 format=3 uid="uid://bd5hjbfk8ncjl"]
+[gd_resource type="TileSet" load_steps=76 format=3 uid="uid://bd5hjbfk8ncjl"]
 
 [ext_resource type="Texture2D" uid="uid://ctdjlki6ay6qs" path="res://levels/tiles.aseprite" id="1_psjq4"]
 [ext_resource type="Texture2D" uid="uid://crop65e8r8i6w" path="res://levels/column.aseprite" id="2_nvfl4"]
@@ -222,6 +222,12 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -16, 0, 0, 8, 16
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h8kqx"]
+vertices = PackedVector2Array(16, 0, 0, 8, -16, 0, 0, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_m4bho"]
 vertices = PackedVector2Array(16, 0, 0, 8, -16, 0, 0, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)])
@@ -1432,6 +1438,17 @@ use_texture_padding = false
 0:11/0/texture_origin = Vector2i(0, -8)
 0:10/0 = 0
 0:10/0/texture_origin = Vector2i(0, -8)
+1:15/0 = 0
+1:15/0/texture_origin = Vector2i(0, 8)
+1:15/0/modulate = Color(0.526021, 0.300137, 0.0322388, 1)
+1:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
+1:15/0/custom_data_2 = true
+2:15/0 = 0
+2:15/0/texture_origin = Vector2i(0, -8)
+2:15/0/modulate = Color(0.526021, 0.300137, 0.0322388, 1)
+2:15/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_m4bho")
+2:15/0/custom_data_2 = true
+2:15/0/custom_data_3 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7utp5"]
 texture = ExtResource("2_nvfl4")
@@ -1461,5 +1478,9 @@ custom_data_layer_0/name = "gate"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "progress"
 custom_data_layer_1/type = 2
+custom_data_layer_2/name = "destructible"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "destroyed"
+custom_data_layer_3/type = 1
 sources/0 = SubResource("TileSetAtlasSource_x25rp")
 sources/1 = SubResource("TileSetAtlasSource_7utp5")

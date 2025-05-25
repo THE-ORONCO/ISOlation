@@ -3,6 +3,8 @@ extends Node
 var slot: Item
 var player: Node2D
 
+signal item_used(item: Item)
+
 func pick_up(new_item: Item) -> void:
 	var old_item: Item = slot
 	
@@ -27,6 +29,7 @@ func remember():
 
 func use():
 	if slot != null && player != null:
+		item_used.emit(slot)
 		slot.use(player)
 		
 func register(p: Player):
