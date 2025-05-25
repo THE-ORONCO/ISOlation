@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://ifam668uy4sn"]
+[gd_scene load_steps=11 format=4 uid="uid://ifam668uy4sn"]
 
 [ext_resource type="Script" uid="uid://q31tkq417j20" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="TileSet" uid="uid://bd5hjbfk8ncjl" path="res://levels/tiles.tres" id="2_w7r7j"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bwp87n4jvt7f" path="res://sound/dummy_sound.mp3" id="7_ur00s"]
 [ext_resource type="PackedScene" uid="uid://11rlxflpmrq0" path="res://entities/umbrella/umbrella.tscn" id="8_wndkh"]
 [ext_resource type="PackedScene" uid="uid://btiypue4n63pp" path="res://entities/button/button.tscn" id="9_ly3hx"]
+[ext_resource type="PackedScene" uid="uid://ilaetphb7hyb" path="res://entities/sound_bowl/sound_bowl.tscn" id="10_4n8tn"]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_w7r7j")
@@ -50,6 +51,5 @@ position = Vector2(-18, 25)
 [node name="Button" parent="." instance=ExtResource("9_ly3hx")]
 position = Vector2(-2, 45)
 
-[node name="Umbrella2" parent="." instance=ExtResource("8_wndkh")]
-position = Vector2(22, 39)
-rotation = 1.22173
+[node name="SoundBowl" parent="." instance=ExtResource("10_4n8tn")]
+position = Vector2(24, 32)

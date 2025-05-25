@@ -40,7 +40,8 @@ var movement_delta: float
 var _can_interact: bool = false
 
 func _ready() -> void:
-	Inventory.player = self
+	Inventory.register(self)
+
 	agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	agent.set_navigation_layer_value(walk_on, true)
 	
@@ -48,6 +49,11 @@ func _ready() -> void:
 		Rotation.TOP: pass
 		Rotation.LEFT: %Sprite.rotation = -PI/2
 		Rotation.RIGHT: %Sprite.rotation = PI/2
+
+func _exit_tree() -> void:
+	Inventory.remember()
+	if _interact_tween != null:
+		_interact_tween.kill()
 
 const WATER_LAYER: int = 7
 
@@ -147,9 +153,7 @@ func _navigate_in_direction(input: Vector2, delta: float) -> void:
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
 
-func _exit_tree() -> void:
-	if _interact_tween != null:
-		_interact_tween.kill()
+
 
 var _interact_tween: Tween = null
 func _close_to_interactible(thing: Node2D) -> void:

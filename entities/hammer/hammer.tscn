@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://do7lqrde5lg13"]
+
+[ext_resource type="Script" uid="uid://bs1htyvwlx051" path="res://entities/hammer/hammer.gd" id="1_pw38v"]
+[ext_resource type="Texture2D" uid="uid://r5o6sld6uysc" path="res://levels/items and enviremente.aseprite" id="1_si8q0"]
+
+[node name="Hammer" type="Node2D"]
+script = ExtResource("1_pw38v")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_si8q0")
+region_enabled = true
+region_rect = Rect2(352, 32, 32, 32)

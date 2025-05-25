@@ -1,7 +1,7 @@
 extends Node
 
-var slot: Item = null
-var player: Node2D = null
+var slot: Item
+var player: Node2D
 
 func pick_up(new_item: Item) -> void:
 	var old_item: Item = slot
@@ -13,11 +13,24 @@ func pick_up(new_item: Item) -> void:
 	
 	slot = new_item
 	
-	if player != null:
-		new_item.apply(player)
-		new_item.reparent.call_deferred(player)
-		new_item.set_deferred("position", Vector2.ZERO)
+	if player != null: 
+		_attach_item_to_player(new_item)
+
+func _attach_item_to_player(new_item: Item):
+	new_item.apply(player)
+	new_item.reparent.call_deferred(player)
+	new_item.set_deferred("position", Vector2.ZERO)
+
+func remember():
+	self.slot.reparent(self)
 
 func use():
 	if slot != null && player != null:
 		slot.use(player)
+		
+func register(p: Player):
+	player = p
+	
+	if self.get_child_count() > 0:
+		slot = self.get_child(0)
+		_attach_item_to_player(self.get_child(0))
