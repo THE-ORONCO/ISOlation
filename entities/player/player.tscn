@@ -12,8 +12,9 @@ radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 50
+y_sort_enabled = true
 collision_layer = 8
-collision_mask = 16
+collision_mask = 17
 script = ExtResource("1_tory2")
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -29,10 +30,12 @@ texture = ExtResource("3_evndh")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_o6mel")
 
 [node name="Interaction" type="Area2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, -6)
 collision_layer = 32
 collision_mask = 16
 
@@ -48,9 +51,9 @@ simplify_path = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, -6)
 scale = Vector2(0.09375, 0.09375)
 texture = ExtResource("2_x0jl3")
-offset = Vector2(0, -32)
 
 [connection signal="area_entered" from="Interaction" to="." method="_close_to_interactible"]
 [connection signal="area_exited" from="Interaction" to="." method="_away_from_interactible"]

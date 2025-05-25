@@ -7,6 +7,7 @@
 radius = 8.0
 
 [node name="Button" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_4tlb3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -14,6 +15,7 @@ scale = Vector2(0.117162, 0.117162)
 texture = ExtResource("2_7gf2j")
 
 [node name="Hit" type="StaticBody2D" parent="."]
+y_sort_enabled = true
 collision_layer = 16
 collision_mask = 0
 

@@ -11,15 +11,19 @@ radius = 5.0
 height = 16.0
 
 [node name="Door" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_gxcpb")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -9)
 rotation = 0.436332
 scale = Vector2(0.1, 0.139)
 skew = -0.436332
 texture = ExtResource("1_120vl")
 
 [node name="Interact" type="Area2D" parent="."]
+position = Vector2(0, -10)
 collision_layer = 0
 collision_mask = 8
 
@@ -31,6 +35,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="Box" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_gxcpb")
 
 [connection signal="body_entered" from="Interact" to="." method="_entered_interact_range"]

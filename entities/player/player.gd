@@ -32,7 +32,6 @@ enum Rotation {
 
 @export_category("hope")
 @export_range(10, 50) var hope_display_distance: float = 5
-@onready var _hope: int = HopeManager.hope 
 var _show_hope: bool = false
 
 @onready var agent: NavigationAgent2D = %Agent
@@ -56,18 +55,18 @@ var target_pos: Vector2 = Vector2.ZERO
 var move_dir: Vector2 = Vector2.ZERO
 
 func _draw() -> void:
-	draw_circle(move_dir * nav_lookahead, 3, Color.RED)
-	draw_line(Vector2.ZERO, move_dir * 20, Color.RED, 4)
-	for point in agent.get_current_navigation_path():
-		draw_circle(point - self.position, 2, Color.PINK)
-	
+	# debug drawing for path finding
+	#draw_circle(move_dir * nav_lookahead, 3, Color.RED)
+	#draw_line(Vector2.ZERO, move_dir * 20, Color.RED, 4)
+	#for point in agent.get_current_navigation_path():
+		#draw_circle(point - self.position, 2, Color.PINK)
 	if _show_interact_prompt:
 		draw_circle(Vector2.UP * _interact_prompt_height, _r_interact_circle, Color.WHITE)
 	
 	if _show_hope:
 		var points := arrange_in_circle(HopeManager.hope, hope_display_distance)
 		for point in points:
-			draw_circle(point + Vector2.UP * interact_prompt_max_height , 2.0, Color.WHITE)
+			draw_circle(point + Vector2.UP * interact_prompt_max_height , 2.0, Colors.PLAYER_COLOR)
 	
 func arrange_in_circle(n: int, r: float) -> Array:
 	var output = []
@@ -82,10 +81,12 @@ func polar2cartesian(r, g):
 	return Vector2(r * cos(g), r* sin(g))
 
 func _physics_process(delta):	
+	queue_redraw()
 	var input: Vector2 = Input.get_vector("mv_left", "mv_right", "mv_up", "mv_down")
 	_navigate_in_direction(input, delta)
 	
-	if Input.is_action_just_pressed("interact") && _can_interact:
+	if Input.is_action_just_pressed("interact") && _can_interact \
+		&& (%Interaction.has_overlapping_areas() || %Interaction.has_overlapping_bodies()):
 		var areas: Array[Area2D] = %Interaction.get_overlapping_areas()
 		for area in areas:
 			var parent = area.get_parent()
@@ -97,13 +98,18 @@ func _physics_process(delta):
 			var parent = body.get_parent()
 			if parent != null && parent is Interactible:
 				parent.interact()
+	else:
+		Inventory.use()
 
 func _navigate_in_direction(input: Vector2, delta: float) -> void:
 	# skew input because we move asymmetrically
 	move_dir = Vector2(input.x, input.y / 2)
 	
 	target_pos = self.global_position + move_dir * nav_lookahead
-	queue_redraw()
+	# search for the nearest point on the nav mesh
+	var rid: RID = agent.get_navigation_map()
+	target_pos = NavigationServer2D.map_get_closest_point(rid, target_pos)
+	
 	agent.target_position = target_pos
 	
 	
@@ -123,9 +129,11 @@ func _navigate_in_direction(input: Vector2, delta: float) -> void:
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
 
+func _exit_tree() -> void:
+	_interact_tween.kill()
 
 var _interact_tween: Tween = null
-func _close_to_interactible(thing: Node2D) -> void:
+func _close_to_interactible(_thing: Node2D) -> void:
 	_can_interact = true
 	_show_interact_prompt = true
 	_show_hope = true
@@ -151,7 +159,7 @@ func _tween_in_interact_prompt():
 	.from(0)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 
-func _away_from_interactible(thing: Node2D) -> void:
+func _away_from_interactible(_thing: Node2D) -> void:
 	_can_interact = false
 	_show_hope = false
 	_tween_out_interact_prompt()
