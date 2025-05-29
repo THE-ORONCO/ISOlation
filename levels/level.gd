@@ -57,7 +57,7 @@ func toggle_tiles(anim_time: float = .3) -> void:
 		
 
 func _destroy_tiles(item: Item):
-	if !(item is SoundBowl):
+	if !(item is Hammer):
 		return
 	var pos:= item.global_position
 	for world in worlds:

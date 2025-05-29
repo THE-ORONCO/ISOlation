@@ -10,10 +10,10 @@ func next():
 	var i: int = 0
 	for sound in sounds:
 		var s: AudioStreamPlayer = sound
-		if sound_to_play < i:	
-			s.stop()
-		else: 
+		if sound_to_play == i:	
 			s.play()
+		else: 
+			s.stop()
 		i +=1
 	
 	sound_to_play = clamp(sound_to_play + 1 , 0, 3)
